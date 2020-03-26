@@ -1,11 +1,11 @@
-script: mvn clean install
+script:
+  -mvn clean install
+  -mvn deploy -Dregistry=https://maven.pkg.github.com/fcaptuayo -Dtoken=$GH_TOKEN
 
 language: java
 
 jdk:
   - oraclejdk11
-
-after_success: mvn deploy -Dregistry=https://maven.pkg.github.com/fcaptuayo -Dtoken=GH_TOKEN
 
 branches:
   only:
