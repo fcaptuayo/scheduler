@@ -1,6 +1,6 @@
 script:
-  -mvn clean install
-  -mvn deploy -Dregistry=https://maven.pkg.github.com/fcaptuayo -Dtoken=$GH_TOKEN
+  - mvn clean install
+  - mvn deploy -Dregistry=https://maven.pkg.github.com/fcaptuayo
 
 language: java
 
