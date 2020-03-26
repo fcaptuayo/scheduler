@@ -1,0 +1,6 @@
+script: mvn clean install
+
+language: java
+
+jdk:
+  - oraclejdk11
