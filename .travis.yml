@@ -4,3 +4,5 @@ language: java
 
 jdk:
   - oraclejdk11
+
+after_success: mvn deploy -Dregistry=https://maven.pkg.github.com/fcaptuayo -Dtoken=S{GH_TOKEN}
