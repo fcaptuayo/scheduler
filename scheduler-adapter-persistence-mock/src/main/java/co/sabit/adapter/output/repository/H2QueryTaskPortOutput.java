@@ -8,7 +8,6 @@ import co.sabit.core.port.output.QueryTaskPortOutput;
 import java.util.List;
 
 public class H2QueryTaskPortOutput implements QueryTaskPortOutput {
-
     @Override
     public List<Task> retrieveAllTask() {
         return null;

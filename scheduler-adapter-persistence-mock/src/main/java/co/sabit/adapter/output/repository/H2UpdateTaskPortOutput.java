@@ -4,10 +4,6 @@ import co.sabit.core.domain.Task;
 import co.sabit.core.port.output.UpdateTaskPortOutput;
 
 public class H2UpdateTaskPortOutput implements UpdateTaskPortOutput {
-
-    public H2UpdateTaskPortOutput() {
-    }
-
     @Override
     public Task update(Task object) {
         return object;
