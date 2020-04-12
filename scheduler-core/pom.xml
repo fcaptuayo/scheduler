@@ -5,13 +5,13 @@
     <parent>
         <artifactId>scheduler</artifactId>
         <groupId>co.sabit</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>co.sabit</groupId>
     <artifactId>scheduler-core</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>scheduler-core</name>
     <description>Scheduler Core</description>
 

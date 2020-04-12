@@ -4,19 +4,19 @@
     <parent>
         <artifactId>scheduler</artifactId>
         <groupId>co.sabit</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>co.sabit</groupId>
     <artifactId>scheduler-adapter-persistence-mock</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>scheduler-adapter-persistence-mock</name>
     <description>Scheduler Adapter Persistence Mock</description>
 
     <properties>
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
-        <schedulerVersion>0.0.1-SNAPSHOT</schedulerVersion>
+        <schedulerVersion>0.0.2-SNAPSHOT</schedulerVersion>
     </properties>
 
     <dependencies>
