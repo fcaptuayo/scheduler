@@ -39,7 +39,7 @@ public class TaskQueryAdapterOutput implements QueryTaskPortOutput {
     @Override
     public Long countTasksByIdentifier(Identifier identifier) {
         LOGGER.warn("TaskQueryAdapterOutput.countTasksByIdentifier");
-        return repository.count();
+        return repository.countByIdentifier(identifier);
     }
 
     @Override

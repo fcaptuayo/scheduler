@@ -9,12 +9,15 @@ import java.time.ZonedDateTime;
 @Entity
 @Table(name = "tasks")
 @NamedQueries({
-        @NamedQuery(name = TaskJpaEntity.COUNT_ALL, query = "Select COUNT(TSK.id) from TaskJpaEntity TSK"),
-        @NamedQuery(name = TaskJpaEntity.GET_ALL, query = "Select TSK from TaskJpaEntity TSK")
+        @NamedQuery(name = TaskJpaEntity.COUNT_ALL, query = "SELECT COUNT(TSK.id) FROM TaskJpaEntity TSK"),
+        @NamedQuery(name = TaskJpaEntity.COUNT_BY_IDENTIFIER, query = "SELECT COUNT(TSK.id) FROM TaskJpaEntity TSK WHERE TSK.identifier = :" + TaskJpaEntity.PARAMETER_IDENTIFIER),
+        @NamedQuery(name = TaskJpaEntity.GET_ALL, query = "SELECT TSK FROM TaskJpaEntity TSK")
 })
 public class TaskJpaEntity {
     public static final String COUNT_ALL = "TaskJpaEntity.countAll";
+    public static final String COUNT_BY_IDENTIFIER = "TaskJpaEntity.countByIdentifier";
     public static final String GET_ALL = "TaskJpaEntity.getAll";
+    public static final String PARAMETER_IDENTIFIER = "identifier";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
