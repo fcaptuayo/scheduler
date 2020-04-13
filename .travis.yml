@@ -1,6 +1,13 @@
-script: mvn clean install
+script:
+  - mvn clean install
+  - mvn deploy -Dregistry=https://maven.pkg.github.com/fcaptuayo
 
 language: java
 
 jdk:
   - oraclejdk11
+
+branches:
+  only:
+    - master
+    - develop
