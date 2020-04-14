@@ -3,16 +3,16 @@ package co.sabit.adapter;
 import co.sabit.adapter.input.model.TaskDto;
 import co.sabit.adapter.input.model.TaskIdentifierDto;
 import co.sabit.core.error.CoreError;
-import co.sabit.core.usecase.TaskCommandUseCase;
+import co.sabit.core.usecase.TaskCommandAlgebra;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TaskProgramCommand {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TaskProgramCommand.class);
+public class TaskCommand {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TaskCommand.class);
 
-    private final TaskCommandUseCase useCase;
+    private final TaskCommandAlgebra useCase;
 
-    public TaskProgramCommand(TaskCommandUseCase useCase) {
+    public TaskCommand(TaskCommandAlgebra useCase) {
         LOGGER.warn("TaskProgramCommand.TaskProgramCommand");
         this.useCase = useCase;
     }

@@ -1,25 +1,25 @@
-package co.sabit.core.usecase.service;
+package co.sabit.core.usecase.program;
 
 import co.sabit.core.domain.Identifier;
 import co.sabit.core.domain.Responsible;
 import co.sabit.core.domain.Task;
-import co.sabit.core.port.output.QueryTaskPortOutput;
-import co.sabit.core.usecase.TaskQueryUseCase;
+import co.sabit.core.port.output.QueryTaskAlgebra;
+import co.sabit.core.usecase.TaskQueryAlgebra;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-public class TaskQueryService implements TaskQueryUseCase {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TaskQueryService.class);
+public class TaskQueryInterpreter implements TaskQueryAlgebra {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TaskQueryInterpreter.class);
 
-    private final QueryTaskPortOutput queryRepository;
+    private final QueryTaskAlgebra queryRepository;
 
-    public TaskQueryService(
-            final QueryTaskPortOutput queryTaskPortOutput
+    public TaskQueryInterpreter(
+            final QueryTaskAlgebra queryTaskAlgebra
     ) {
         LOGGER.warn("TaskQueryService.TaskQueryService");
-        this.queryRepository = queryTaskPortOutput;
+        this.queryRepository = queryTaskAlgebra;
     }
 
     @Override

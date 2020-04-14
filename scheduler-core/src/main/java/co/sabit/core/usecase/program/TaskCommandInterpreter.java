@@ -1,42 +1,42 @@
-package co.sabit.core.usecase.service;
+package co.sabit.core.usecase.program;
 
 import co.sabit.core.domain.*;
 import co.sabit.core.error.CoreError;
 import co.sabit.core.error.ServiceError;
-import co.sabit.core.port.input.IdGeneratorPortInput;
-import co.sabit.core.port.output.CreateTaskPortOutput;
-import co.sabit.core.port.output.UpdateTaskPortOutput;
-import co.sabit.core.usecase.TaskCommandUseCase;
-import co.sabit.core.usecase.TaskValidatorUseCase;
+import co.sabit.core.port.input.IdGeneratorAlgebra;
+import co.sabit.core.port.output.CreateTaskAlgebra;
+import co.sabit.core.port.output.UpdateTaskAlgebra;
+import co.sabit.core.usecase.TaskCommandAlgebra;
+import co.sabit.core.usecase.TaskValidatorAlgebra;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TaskCommandService implements TaskCommandUseCase {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TaskCommandService.class);
+public class TaskCommandInterpreter implements TaskCommandAlgebra {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TaskCommandInterpreter.class);
 
-    private final CreateTaskPortOutput repositoryCreate;
-    private final UpdateTaskPortOutput repositoryUpdate;
-    private final TaskValidatorUseCase validator;
-    private final IdGeneratorPortInput idGeneratorPortInput;
+    private final CreateTaskAlgebra repositoryCreate;
+    private final UpdateTaskAlgebra repositoryUpdate;
+    private final TaskValidatorAlgebra validator;
+    private final IdGeneratorAlgebra idGeneratorAlgebra;
 
-    public TaskCommandService(
-            CreateTaskPortOutput repositoryCreate,
-            UpdateTaskPortOutput repositoryUpdate,
-            TaskValidatorUseCase validator,
-            IdGeneratorPortInput idGeneratorPortInput
+    public TaskCommandInterpreter(
+            CreateTaskAlgebra repositoryCreate,
+            UpdateTaskAlgebra repositoryUpdate,
+            TaskValidatorAlgebra validator,
+            IdGeneratorAlgebra idGeneratorAlgebra
     ) {
         LOGGER.warn("TaskCommandService.TaskCommandService");
         this.repositoryCreate = repositoryCreate;
         this.repositoryUpdate = repositoryUpdate;
         this.validator = validator;
-        this.idGeneratorPortInput = idGeneratorPortInput;
+        this.idGeneratorAlgebra = idGeneratorAlgebra;
     }
 
     @Override
     public Identifier create(final Task object) throws CoreError {
         LOGGER.warn("TaskCommandService.create");
         Task objectToSave = Task.build(
-                idGeneratorPortInput.generate(),
+                idGeneratorAlgebra.generate(),
                 object.getLifeTime(),
                 object.getPlace(),
                 object.getResponsible()

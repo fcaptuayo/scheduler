@@ -6,7 +6,7 @@ import co.sabit.core.domain.Task;
 
 import java.util.List;
 
-public interface TaskQueryUseCase {
+public interface TaskQueryAlgebra {
     List<Task> retrieveAll();
 
     List<Task> retrieveTasksByIdentifier(Identifier identifier);

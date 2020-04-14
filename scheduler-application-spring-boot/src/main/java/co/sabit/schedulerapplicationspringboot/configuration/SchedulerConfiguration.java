@@ -1,21 +1,21 @@
 package co.sabit.schedulerapplicationspringboot.configuration;
 
-import co.sabit.adapter.TaskProgramCommand;
-import co.sabit.adapter.TaskProgramQuery;
-import co.sabit.adapter.input.UuidGeneratorAdapterInput;
-import co.sabit.adapter.output.TaskCreateAdapterOutput;
-import co.sabit.adapter.output.TaskQueryAdapterOutput;
-import co.sabit.adapter.output.TaskUpdateAdapterOutput;
+import co.sabit.adapter.TaskCommand;
+import co.sabit.adapter.TaskQuery;
+import co.sabit.adapter.input.program.UuidGeneratorInterpreterWeb;
+import co.sabit.adapter.output.program.TaskCreateInterpreterPersistence;
+import co.sabit.adapter.output.program.TaskQueryInterpreterPersistence;
+import co.sabit.adapter.output.program.TaskUpdateInterpreterPersistence;
 import co.sabit.adapter.output.repository.TaskCommandRepository;
 import co.sabit.adapter.output.repository.TaskQueryRepository;
-import co.sabit.core.port.input.IdGeneratorPortInput;
-import co.sabit.core.port.output.CreateTaskPortOutput;
-import co.sabit.core.port.output.QueryTaskPortOutput;
-import co.sabit.core.port.output.UpdateTaskPortOutput;
-import co.sabit.core.usecase.TaskValidatorUseCase;
-import co.sabit.core.usecase.service.TaskCommandService;
-import co.sabit.core.usecase.service.TaskQueryService;
-import co.sabit.core.usecase.service.TaskValidatorService;
+import co.sabit.core.port.input.IdGeneratorAlgebra;
+import co.sabit.core.port.output.CreateTaskAlgebra;
+import co.sabit.core.port.output.QueryTaskAlgebra;
+import co.sabit.core.port.output.UpdateTaskAlgebra;
+import co.sabit.core.usecase.TaskValidatorAlgebra;
+import co.sabit.core.usecase.program.TaskCommandInterpreter;
+import co.sabit.core.usecase.program.TaskQueryInterpreter;
+import co.sabit.core.usecase.program.TaskValidatorInterpreter;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -90,42 +90,42 @@ public class SchedulerConfiguration {
     }
 
     @Bean(name = "queryTaskRepository")
-    public QueryTaskPortOutput queryTaskRepository(TaskQueryRepository taskQueryRepository) {
-        return new TaskQueryAdapterOutput(taskQueryRepository);
+    public QueryTaskAlgebra queryTaskRepository(TaskQueryRepository taskQueryRepository) {
+        return new TaskQueryInterpreterPersistence(taskQueryRepository);
     }
 
     @Bean(name = "createTaskRepository")
-    public CreateTaskPortOutput createTaskRepository(TaskCommandRepository taskCommandRepository) {
-        return new TaskCreateAdapterOutput(taskCommandRepository);
+    public CreateTaskAlgebra createTaskRepository(TaskCommandRepository taskCommandRepository) {
+        return new TaskCreateInterpreterPersistence(taskCommandRepository);
     }
 
     @Bean(name = "updateTaskRepository")
-    public UpdateTaskPortOutput updateTaskRepository(TaskCommandRepository taskCommandRepository) {
-        return new TaskUpdateAdapterOutput(taskCommandRepository);
+    public UpdateTaskAlgebra updateTaskRepository(TaskCommandRepository taskCommandRepository) {
+        return new TaskUpdateInterpreterPersistence(taskCommandRepository);
     }
 
     @Bean(name = "taskValidatorUseCase")
-    public TaskValidatorUseCase taskValidatorUseCase(QueryTaskPortOutput queryTaskPortOutput) {
-        return new TaskValidatorService(queryTaskPortOutput);
+    public TaskValidatorAlgebra taskValidatorUseCase(QueryTaskAlgebra queryTaskAlgebra) {
+        return new TaskValidatorInterpreter(queryTaskAlgebra);
     }
 
     @Bean(name = "idGeneratorService")
-    public IdGeneratorPortInput idGeneratorService() {
-        return new UuidGeneratorAdapterInput();
+    public IdGeneratorAlgebra idGeneratorService() {
+        return new UuidGeneratorInterpreterWeb();
     }
 
     @Bean(name = "taskQueryService")
-    public TaskQueryService taskQueryService(QueryTaskPortOutput queryTaskPortOutput) {
-        return new TaskQueryService(queryTaskPortOutput);
+    public TaskQueryInterpreter taskQueryService(QueryTaskAlgebra queryTaskAlgebra) {
+        return new TaskQueryInterpreter(queryTaskAlgebra);
     }
 
     @Bean(name = "taskProgramCommand")
-    public TaskProgramCommand taskProgramCommand(CreateTaskPortOutput createTaskPortOutput, UpdateTaskPortOutput updateTaskPortOutput, TaskValidatorUseCase taskValidatorUseCase, IdGeneratorPortInput idGeneratorPortInput) {
-        return new TaskProgramCommand(new TaskCommandService(createTaskPortOutput, updateTaskPortOutput, taskValidatorUseCase, idGeneratorPortInput));
+    public TaskCommand taskProgramCommand(CreateTaskAlgebra createTaskAlgebra, UpdateTaskAlgebra updateTaskAlgebra, TaskValidatorAlgebra taskValidatorAlgebra, IdGeneratorAlgebra idGeneratorAlgebra) {
+        return new TaskCommand(new TaskCommandInterpreter(createTaskAlgebra, updateTaskAlgebra, taskValidatorAlgebra, idGeneratorAlgebra));
     }
 
     @Bean(name = "taskProgramQuery")
-    public TaskProgramQuery taskProgramQuery(TaskQueryService taskQueryService) {
-        return new TaskProgramQuery(taskQueryService);
+    public TaskQuery taskProgramQuery(TaskQueryInterpreter taskQueryInterpreter) {
+        return new TaskQuery(taskQueryInterpreter);
     }
 }

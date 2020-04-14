@@ -1,7 +1,7 @@
 package co.sabit.schedulerapplicationspringboot.controller;
 
-import co.sabit.adapter.TaskProgramCommand;
-import co.sabit.adapter.TaskProgramQuery;
+import co.sabit.adapter.TaskCommand;
+import co.sabit.adapter.TaskQuery;
 import co.sabit.adapter.input.model.TaskDto;
 import co.sabit.adapter.input.model.TaskIdentifierDto;
 import co.sabit.adapter.input.model.TaskSummaryDto;
@@ -21,19 +21,19 @@ import java.util.List;
 public class TaskController {
     private static final Logger LOGGER = LoggerFactory.getLogger(TaskController.class);
 
-    private final TaskProgramQuery taskProgramQuery;
-    private final TaskProgramCommand taskProgramCommand;
+    private final TaskQuery taskQuery;
+    private final TaskCommand taskCommand;
 
     @Autowired
-    public TaskController(TaskProgramQuery taskProgramQuery, TaskProgramCommand taskProgramCommand) {
-        this.taskProgramQuery = taskProgramQuery;
-        this.taskProgramCommand = taskProgramCommand;
+    public TaskController(TaskQuery taskQuery, TaskCommand taskCommand) {
+        this.taskQuery = taskQuery;
+        this.taskCommand = taskCommand;
     }
 
     @PostMapping
     public ResponseEntity<TaskIdentifierDto> createTask(@RequestBody TaskDto taskDto) {
         try {
-            TaskIdentifierDto response = taskProgramCommand.createTask(taskDto);
+            TaskIdentifierDto response = taskCommand.createTask(taskDto);
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
         } catch (BusinessError businessError) {
             LOGGER.error(businessError.getValue());
@@ -51,7 +51,7 @@ public class TaskController {
     public ResponseEntity<List<TaskSummaryDto>> retrieveAll() {
         try {
             LOGGER.warn("TaskController.retrieveAll");
-            return ResponseEntity.ok(taskProgramQuery.retrieveAll());
+            return ResponseEntity.ok(taskQuery.retrieveAll());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }

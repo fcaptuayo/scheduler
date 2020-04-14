@@ -1,4 +1,4 @@
-package co.sabit.adapter.output;
+package co.sabit.adapter.output.program;
 
 import co.sabit.adapter.output.mapper.TaskMapper;
 import co.sabit.adapter.output.model.TaskJpaEntity;
@@ -7,18 +7,18 @@ import co.sabit.core.domain.Identifier;
 import co.sabit.core.domain.Responsible;
 import co.sabit.core.domain.Task;
 import co.sabit.core.error.CoreError;
-import co.sabit.core.port.output.QueryTaskPortOutput;
+import co.sabit.core.port.output.QueryTaskAlgebra;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TaskQueryAdapterOutput implements QueryTaskPortOutput {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TaskQueryAdapterOutput.class);
+public class TaskQueryInterpreterPersistence implements QueryTaskAlgebra {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TaskQueryInterpreterPersistence.class);
     private final TaskQueryRepository repository;
 
-    public TaskQueryAdapterOutput(TaskQueryRepository repository) {
+    public TaskQueryInterpreterPersistence(TaskQueryRepository repository) {
         LOGGER.warn("TaskQueryAdapterOutput.TaskQueryAdapterOutput");
         this.repository = repository;
     }

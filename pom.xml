@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>co.sabit</groupId>
     <artifactId>scheduler</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>scheduler</name>
     <url>http://maven.apache.org</url>
@@ -16,6 +16,7 @@
         <module>scheduler-adapter-persistence</module>
         <module>scheduler-adapter-web</module>
         <module>scheduler-application-spring-boot</module>
+        <module>scheduler-application-kotlin-spring-boot</module>
         <module>scheduler-core</module>
         <module>scheduler-adapter-persistence-mock</module>
     </modules>
