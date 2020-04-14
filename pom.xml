@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>co.sabit</groupId>
+    <artifactId>scheduler</artifactId>
+    <version>0.0.3-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>scheduler</name>
+    <url>http://maven.apache.org</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+    </properties>
+    <modules>
+        <module>scheduler-adapter-persistence</module>
+        <module>scheduler-adapter-web</module>
+        <module>scheduler-application-spring-boot</module>
+        <module>scheduler-application-kotlin-spring-boot</module>
+        <module>scheduler-core</module>
+        <module>scheduler-adapter-persistence-mock</module>
+    </modules>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/fcaptuayo/scheduler</url>
+        </repository>
+    </distributionManagement>
+</project>

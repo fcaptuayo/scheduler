@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>co.sabit</groupId>
+        <artifactId>scheduler</artifactId>
+        <version>0.0.3-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>co.sabit</groupId>
+    <artifactId>scheduler-adapter-web</artifactId>
+    <version>0.0.3-SNAPSHOT</version>
+    <name>scheduler-adapter-web</name>
+    <description>Scheduler Adapter WEB</description>
+
+    <properties>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <jacksonVersion>2.10.3</jacksonVersion>
+        <schedulerVersion>0.0.3-SNAPSHOT</schedulerVersion>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>co.sabit</groupId>
+            <artifactId>scheduler-core</artifactId>
+            <version>${schedulerVersion}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jacksonVersion}</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/fcaptuayo/scheduler</url>
+        </repository>
+    </distributionManagement>
+
+</project>
