@@ -4,12 +4,12 @@
     <parent>
         <artifactId>scheduler</artifactId>
         <groupId>co.sabit</groupId>
-        <version>0.0.2-SNAPSHOT</version>
+        <version>0.0.3-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>co.sabit</groupId>
     <artifactId>scheduler-adapter-persistence</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>scheduler-adapter-persistence</name>
     <description>Scheduler Persistence</description>
 
@@ -18,7 +18,7 @@
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
         <hibernateVersion>5.4.14.Final</hibernateVersion>
-        <schedulerVersion>0.0.2-SNAPSHOT</schedulerVersion>
+        <schedulerVersion>0.0.3-SNAPSHOT</schedulerVersion>
     </properties>
 
     <dependencies>

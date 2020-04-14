@@ -1,19 +1,19 @@
-package co.sabit.adapter.output;
+package co.sabit.adapter.output.program;
 
 import co.sabit.adapter.output.mapper.TaskMapper;
 import co.sabit.adapter.output.repository.TaskCommandRepository;
 import co.sabit.core.domain.Task;
 import co.sabit.core.domain.error.BusinessError;
-import co.sabit.core.port.output.UpdateTaskPortOutput;
+import co.sabit.core.port.output.UpdateTaskAlgebra;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TaskUpdateAdapterOutput implements UpdateTaskPortOutput {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TaskUpdateAdapterOutput.class);
+public class TaskUpdateInterpreterPersistence implements UpdateTaskAlgebra {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TaskUpdateInterpreterPersistence.class);
 
     private final TaskCommandRepository repository;
 
-    public TaskUpdateAdapterOutput(TaskCommandRepository repository) {
+    public TaskUpdateInterpreterPersistence(TaskCommandRepository repository) {
         LOGGER.warn("TaskUpdateAdapterOutput.TaskUpdateAdapterOutput");
         this.repository = repository;
     }

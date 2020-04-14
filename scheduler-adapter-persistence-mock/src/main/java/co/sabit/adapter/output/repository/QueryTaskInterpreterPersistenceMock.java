@@ -3,11 +3,11 @@ package co.sabit.adapter.output.repository;
 import co.sabit.core.domain.Identifier;
 import co.sabit.core.domain.Responsible;
 import co.sabit.core.domain.Task;
-import co.sabit.core.port.output.QueryTaskPortOutput;
+import co.sabit.core.port.output.QueryTaskAlgebra;
 
 import java.util.List;
 
-public class H2QueryTaskPortOutput implements QueryTaskPortOutput {
+public class QueryTaskInterpreterPersistenceMock implements QueryTaskAlgebra {
     @Override
     public List<Task> retrieveAllTask() {
         return null;

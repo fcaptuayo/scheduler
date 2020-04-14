@@ -1,15 +1,15 @@
-package co.sabit.adapter.input;
+package co.sabit.adapter.input.program;
 
 import co.sabit.core.domain.Identifier;
 import co.sabit.core.domain.error.BusinessError;
-import co.sabit.core.port.input.IdGeneratorPortInput;
+import co.sabit.core.port.input.IdGeneratorAlgebra;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.UUID;
 
-public class UuidGeneratorAdapterInput implements IdGeneratorPortInput {
-    private static final Logger LOGGER = LoggerFactory.getLogger(UuidGeneratorAdapterInput.class);
+public class UuidGeneratorInterpreterWeb implements IdGeneratorAlgebra {
+    private static final Logger LOGGER = LoggerFactory.getLogger(UuidGeneratorInterpreterWeb.class);
 
     @Override
     public Identifier generate() throws BusinessError {

@@ -6,7 +6,7 @@ import co.sabit.core.domain.Task;
 
 import java.util.List;
 
-public interface QueryTaskPortOutput {
+public interface QueryTaskAlgebra {
     List<Task> retrieveAllTask();
 
     List<Task> retrieveTasksByIdentifier(Identifier identifier);
