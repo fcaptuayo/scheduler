@@ -17,7 +17,7 @@
         <java.version>11</java.version>
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
-        <hibernateVersion>5.4.14.Final</hibernateVersion>
+        <hibernateVersion>5.4.24.Final</hibernateVersion>
         <schedulerVersion>0.0.3-SNAPSHOT</schedulerVersion>
     </properties>
 
