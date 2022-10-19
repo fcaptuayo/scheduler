@@ -16,7 +16,7 @@
     <properties>
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.source>11</maven.compiler.source>
-        <jacksonVersion>2.10.3</jacksonVersion>
+        <jacksonVersion>2.13.4.1</jacksonVersion>
         <schedulerVersion>0.0.3-SNAPSHOT</schedulerVersion>
     </properties>
     <dependencies>
